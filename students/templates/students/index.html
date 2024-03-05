@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signature Pad</title>
+    <script src="jSignature/jquery.js"></script>
+    <script src="jSignature/jSignature.min.js"></script>
+    <script src="jSignature/modernizr.js"></script>
+  </head>
+  <body>
+    <div id="signature" style="border: 1px solid black;">
+<h2>Please sign below:</h2>
+    </div>
+
+    <button id="preview">Preview</button>
+
+    <img src="" id="signaturePreview">
+
+   
+
+    <script type="text/javascript">
+        var signature = $('#signature').jSignature({'UndoButton': true});
+
+        $('#preview').click(function(){
+            var data = signature.jSignature('getData','image');
+            $('#signaturePreview').attr('src','data:'+ data);
+        });
+
+        $('#dowload').click(function(){
+            var image = $('#signaturePreview')[0];
+            this.href = image.src;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+{% extends 'students/base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid pt-4 px-4">
+        <!-- Button Start -->
+           
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="btn btn-primary">Applied Biology & Biochemistry</h6> 
+                        <div class="m-n2">
+                            <button type="button" class="btn btn-outline-danger m-2">Primary</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Secondary</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Success</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Danger</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Warning</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Info</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Light</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Dark</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Link</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="btn btn-primary">Applied Mathematics</h6> 
+                        
+                        <div class="m-n2">
+                            <button type="button" class="btn btn-outline-danger m-2">Primary</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Secondary</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Success</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Danger</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Warning</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Info</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Light</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Dark</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Link</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="btn btn-primary">Radiography</h6> 
+                        <div class="m-n2">
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Primary</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Secondary</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Success</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Danger</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2">Warning</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Info</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Light</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Dark</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Link</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Computer Science</a>
+                            <div class="dropdown-menu btn btn-outline-danger m-20">
+                                <a href="{% url 'applied' %}" class="dropdown-item">Part 1 </a>
+                                <a href="{% url 'applied2' %}" class="dropdown-item">Part 2</a>
+                                <a href="{% url 'applied4' %}" class="dropdown-item">Part 4</a>
+                            </div>
+                        </div>
+                       <div class="m-n2">
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS4101' %}">SCS4101</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS4102' %}">SCS4102</button><a/>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS4104' %}">SCS4104</button><a/>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS4203' %}">SCS4203</button><a/>
+                            <button type="button" class="btn btn-outline-danger m-2">SCS1203</button>
+                            <button type="button" class="btn btn-outline-danger m-2">SCS1201</button>
+                            <button type="button" class="btn btn-outline-danger m-2">SCS1206</button>
+                            <button type="button" class="btn btn-outline-danger m-2">SCS1204</button>
+                            <button type="button" class="btn btn-outline-danger m-2">SCS1205</button>
+                            <button type="button" class="btn btn-outline-danger m-2">SCS1202</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="btn btn-primary">Statistics and Operations Research</h6> 
+                        <div class="m-n2">
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Primary</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Secondary</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Success</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Danger</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2">Warning</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Info</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Light</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Dark</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Link</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="btn btn-primary">Applied Chemistry</h6> 
+                        <div class="m-n2">
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Primary</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Secondary</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Success</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2"><a href="{% url 'SCS2101' %}">Danger</button></a>
+                            <button type="button" class="btn btn-outline-danger m-2">Warning</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Info</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Light</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Dark</button>
+                            <button type="button" class="btn btn-outline-danger m-2">Link</button>
+                        </div>
+                    </div>
+                </div>
+               
+                
+    
+   
+    <!-- Recent Sales End -->
+
+
+
+{% endblock %}

@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Code Scanner</title>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.3.1/dist/jsQR.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <style>
+        #qr-canvas {
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas id="qr-canvas"></canvas>
+<button id="start-scanning">Start Scanning</button>
+<button id="stop-scanning">Stop Scanning</button>
+<div id="result"></div>
+<script>
+    const canvas = document.getElementById('qr-canvas');
+    const ctx = canvas.getContext('2d');
+    const result = document.getElementById('result');
+    const scannedData = [];
+
+    const size = 320;
+    const video = document.createElement('video');
+    let scanning = false; // Flag to control scanning
+
+    const startScanningButton = document.getElementById('start-scanning');
+    const stopScanningButton = document.getElementById('stop-scanning');
+
+    startScanningButton.addEventListener('click', function () {
+        startScanning();
+    });
+
+    stopScanningButton.addEventListener('click', function () {
+        stopScanning();
+    });
+
+    function startScanning() {
+        scanning = true;
+        const stream = navigator.mediaDevices.getUserMedia({video: {facingMode: 'environment'}})
+            .then(function (stream) {
+                video.srcObject = stream;
+                video.setAttribute('playsinline', true);
+                video.play();
+                video.onloadedmetadata = function () {
+                    canvas.width = size;
+                    canvas.height = size * video.videoHeight / video.videoWidth;
+                    scan();
+                };
+            })
+            .catch(function (err) {
+                console.error(err);
+            });
+    }
+
+    function stopScanning() {
+        scanning = false;
+        video.srcObject.getVideoTracks().forEach(function (track) {
+            track.stop();
+        });
+        canvas.remove();
+        result.style.display = 'block';
+        saveToExcel(scannedData);
+    }
+
+    function scan() {
+        if (!scanning) return; // Stop scanning if flag is false
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const decoded = jsQR(imageData.data, imageData.width, imageData.height);
+        if (decoded) {
+            scannedData.push([decoded.data]); // Store data in a 2D array (one column)
+            result.textContent = `QR Code Detected: ${decoded.data}`;
+            scanning = false;
+        }
+        requestAnimationFrame(scan);
+    }
+
+    function saveToExcel(data) {
+        const ws = XLSX.utils.aoa_to_sheet(data); // Convert 2D array to worksheet
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Scanned Data');
+        XLSX.writeFile(wb, 'qr_data.xlsx');
+        result.textContent = 'QR codes saved to qr_data.xlsx in column A.';
+    }
+</script>
+</body>
+</html>

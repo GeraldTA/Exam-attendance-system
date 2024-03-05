@@ -1,0 +1,46 @@
+{% extends 'students/base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-secondary text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">ACCOUNTING DEPARTMENT</h6>
+                <a href="">Show All</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-white">
+                            
+                            <th scope="col">Student Name</th>
+                            <th scope="col">Student ID</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Attended</th>
+                            <th scope="col">Submitted</th>
+                            <th scope="col">Signature</th>
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-white">
+                            {% for subs in sub %}
+                                <td>{{subs.studentname}}</td>
+                                <td>{{subs.studentId}}</td>
+                                <td>{{subs.examdate}}</td>
+                                <td>{{subs.attended}}</td>
+                                <td>{{subs.submitted}}</td>
+                                <td>{{subs.signature}}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Recent Sales End -->
+
+
+
+{% endblock %}
